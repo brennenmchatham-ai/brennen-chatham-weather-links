@@ -317,3 +317,4 @@ function download(name,data,type){let blob=new Blob([data],{type}),url=URL.creat
 document.getElementById("resourceSearch").addEventListener("input",e=>{let q=e.target.value.toLowerCase();let gs=resources.map(g=>({...g,items:g.items.filter(it=>it.join(" ").toLowerCase().includes(q))})).filter(g=>g.items.length);document.getElementById("allResources").innerHTML=gs.length?gs.map(groupHtml).join(""):'<div class="empty">No matching resources found.</div>'});
 </script>
 </body></html>
+
