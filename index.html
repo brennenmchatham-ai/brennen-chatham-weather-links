@@ -82,6 +82,17 @@ body{background:#fff;color:#242a25;font:13px/1.5 Inter,-apple-system,BlinkMacSys
 @media(max-width:1100px){.content{padding:25px 22px 45px}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.sidebar{padding:22px 12px}.topbar{height:50px;padding:0 13px}.content{padding:20px 14px 40px}.pagetitle{font-size:23px}.hero{padding:5px 0 17px}.grid.two,.grid.three,.resourcegrid{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.pill{display:none}}
 
+
+/* Action hierarchy */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:31px}
+.btn.primary{font-weight:600}
+.btn.danger{color:#98635d;border-color:#eadfdd;background:#fff}
+.btn.danger:hover{background:#fbf6f5;border-color:#d9bfbb}
+.action-note{display:block;color:#929892;font-size:9px;margin-top:4px}
+.linkrow .btn{flex-shrink:0}
+button:focus-visible,a:focus-visible,label.btn:focus-within{outline:2px solid #829985;outline-offset:2px}
+@media(max-width:760px){.btn{min-height:34px}}
+
 </style>
 </head>
 <body>
@@ -105,7 +116,7 @@ body{background:#fff;color:#242a25;font:13px/1.5 Inter,-apple-system,BlinkMacSys
 </aside>
 <main class="main">
 <header class="topbar">
-  <div style="display:flex;align-items:center;gap:12px"><button class="btn small mobilemenu" id="menuBtn">☰</button><span class="crumb" id="crumb">WORKSTATION / DASHBOARD</span></div>
+  <div style="display:flex;align-items:center;gap:12px"><button class="btn small mobilemenu" id="menuBtn" aria-label="Open navigation menu" title="Open navigation menu">☰</button><span class="crumb" id="crumb">WORKSTATION / DASHBOARD</span></div>
   <div class="topright"><span class="pill"><i class="dot"></i>Resource links</span><span class="pill">Starkville, MS</span></div>
 </header>
 <div class="content">
@@ -114,16 +125,16 @@ body{background:#fff;color:#242a25;font:13px/1.5 Inter,-apple-system,BlinkMacSys
   <div class="hero"><div><div class="eyebrow">PRIMARY FORECAST DOMAIN</div><h2>Starkville, Mississippi</h2><p>Start with the atmosphere as it exists, diagnose the pattern, evaluate guidance, and build a forecast you can explain.</p><div class="chips" style="margin-top:14px"><span class="chip">Full operational analysis</span><span class="chip">All forecast ranges</span><span class="chip">Broadcast enabled</span></div></div><div class="hero-stat"><b>BCWX</b><span>FORECAST DESK</span></div></div>
   <div class="sectionhead"><h2>Start here</h2><span>Primary workflow shortcuts</span></div>
   <div class="tiles">
-    <a class="tile" href="#" data-goto="flow"><div class="symbol">⇢</div><b>Start New Forecast</b><small>Follow the operational workflow</small></a>
-    <a class="tile" href="#" data-goto="models"><div class="symbol">◉</div><b>Open Model Center</b><small>PolarWx and numerical guidance</small></a>
-    <a class="tile" href="#" data-goto="observations"><div class="symbol">◌</div><b>View Observations</b><small>Radar, satellite, METARs</small></a>
-    <a class="tile" href="#" data-goto="broadcast"><div class="symbol">▣</div><b>Broadcast Studio</b><small>Scripts, headlines, show rundown</small></a>
+    <a class="tile" href="#" data-goto="flow"><div class="symbol">⇢</div><b>Start New Forecast</b><small>Work through the 11 forecast steps</small></a>
+    <a class="tile" href="#" data-goto="models"><div class="symbol">◉</div><b>Open Model Center</b><small>Compare model runs and parameters</small></a>
+    <a class="tile" href="#" data-goto="observations"><div class="symbol">◌</div><b>View Observations</b><small>Check radar, satellite, and METARs</small></a>
+    <a class="tile" href="#" data-goto="broadcast"><div class="symbol">▣</div><b>Broadcast Studio</b><small>Write headlines and build your show</small></a>
   </div>
   <div class="sectionhead"><h2>Quick access</h2><span>Frequently used resources</span></div>
   <div class="grid three">
-    <div class="card"><h3>Primary model viewer</h3><p>PolarWx model viewer</p><a class="btn primary" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://polarwx.com/models/">Open PolarWx ↗</a></div>
-    <div class="card"><h3>SPC Mesoanalysis</h3><p>Surface and upper-air mesoscale environment</p><a class="btn" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://www.spc.noaa.gov/exper/mesoanalysis/">Open SPC ↗</a></div>
-    <div class="card"><h3>NBM Text</h3><p>Blended sensible weather guidance</p><a class="btn" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://www.weather.gov/mdl/nbm_text">Open NBM ↗</a></div>
+    <div class="card"><h3>Primary model viewer</h3><p>PolarWx model viewer</p><a class="btn primary" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://polarwx.com/models/">Open PolarWx model viewer ↗</a></div>
+    <div class="card"><h3>SPC Mesoanalysis</h3><p>Surface and upper-air mesoscale environment</p><a class="btn" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://www.spc.noaa.gov/exper/mesoanalysis/">Open SPC Mesoanalysis ↗</a></div>
+    <div class="card"><h3>NBM Text</h3><p>Blended sensible weather guidance</p><a class="btn" style="display:inline-block;margin-top:12px" target="_blank" rel="noopener" href="https://www.weather.gov/mdl/nbm_text">Open NBM text guidance ↗</a></div>
   </div>
   <div class="sectionhead"><h2>Forecasting principles</h2><span>Keep the reasoning connected</span></div>
   <div class="grid three"><div class="card"><h3>01 · Observe</h3><p>Establish the current state using observations, satellite, radar, and soundings.</p></div><div class="card"><h3>02 · Diagnose</h3><p>Connect the surface pattern, upper-air flow, moisture, instability, and forcing.</p></div><div class="card"><h3>03 · Forecast</h3><p>Compare guidance, account for uncertainty, communicate impacts, and verify.</p></div></div>
@@ -131,14 +142,14 @@ body{background:#fff;color:#242a25;font:13px/1.5 Inter,-apple-system,BlinkMacSys
 
 <section class="page" id="page-flow">
   <div class="eyebrow">Guided operational process</div><h1 class="pagetitle">Daily Forecast Flow</h1><p class="sub">A structured 11-step process for Starkville and the surrounding forecast domain. Check off each phase as you work; progress is saved in this browser.</p>
-  <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;gap:10px"><b>Session progress</b><span id="progressText" style="color:var(--cyan)">0 / 11 complete</span></div><div style="height:7px;background:#1a3042;border-radius:10px;margin-top:10px;overflow:hidden"><div id="progressBar" style="height:100%;width:0;background:linear-gradient(90deg,#3295c7,#55d6d0);transition:.2s"></div></div><button class="btn ghost small" style="margin-top:10px" id="resetFlow">Reset checklist</button></div>
+  <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;gap:10px"><b>Session progress</b><span id="progressText" style="color:var(--cyan)">0 / 11 complete</span></div><div style="height:7px;background:#1a3042;border-radius:10px;margin-top:10px;overflow:hidden"><div id="progressBar" style="height:100%;width:0;background:linear-gradient(90deg,#3295c7,#55d6d0);transition:.2s"></div></div><button class="btn ghost small" style="margin-top:10px" id="resetFlow" title="Clear all completed steps in this forecasting session">Clear session progress</button></div>
   <div class="card" id="flowList"></div>
-  <div class="card" style="margin-top:14px"><h3>Forecast session notes</h3><p>Record the important pattern, forecast reasoning, and uncertainties for this session.</p><textarea class="field" id="flowNotes" placeholder="Example: Midlevel ridge builds east; surface boundary remains north..."></textarea><button class="btn primary" id="saveFlowNotes" style="margin-top:9px">Save session notes</button><span id="flowSaved" style="color:var(--green);font-size:11px;margin-left:10px"></span></div>
+  <div class="card" style="margin-top:14px"><h3>Forecast session notes</h3><p>Record the important pattern, forecast reasoning, and uncertainties for this session.</p><textarea class="field" id="flowNotes" placeholder="Example: Midlevel ridge builds east; surface boundary remains north..."></textarea><button class="btn primary" id="saveFlowNotes" title="Save these notes in this browser" style="margin-top:9px">Save forecast notes</button><span id="flowSaved" style="color:var(--green);font-size:11px;margin-left:10px"></span></div>
 </section>
 
 <section class="page" id="page-models">
   <div class="eyebrow">Numerical weather prediction</div><h1 class="pagetitle">Model Center</h1><p class="sub">PolarWx is the primary model visualization destination. These links open external resources in a new tab; model availability and selectable layers are controlled by each provider.</p>
-  <div class="hero"><div><div class="eyebrow">PRIMARY MODEL RESOURCE</div><h2>PolarWx Model Viewer</h2><p>Use PolarWx for raw model visualization, parameter selection, forecast-hour navigation, and model comparison where available.</p><a class="btn primary" style="display:inline-block;margin-top:13px" href="https://polarwx.com/models/" target="_blank" rel="noopener">Launch PolarWx ↗</a></div><div class="hero-stat"><b>NWP</b><span>MODEL GUIDANCE</span></div></div>
+  <div class="hero"><div><div class="eyebrow">PRIMARY MODEL RESOURCE</div><h2>PolarWx Model Viewer</h2><p>Use PolarWx for raw model visualization, parameter selection, forecast-hour navigation, and model comparison where available.</p><a class="btn primary" style="display:inline-block;margin-top:13px" href="https://polarwx.com/models/" target="_blank" rel="noopener">Launch PolarWx model viewer ↗</a></div><div class="hero-stat"><b>NWP</b><span>MODEL GUIDANCE</span></div></div>
   <div class="sectionhead"><h2>Model and guidance destinations</h2><span>Provider availability may vary</span></div><div class="resourcegrid" id="modelLinks"></div>
   <div class="sectionhead"><h2>Parameter checklist</h2><span>Use comparable valid times when evaluating models</span></div>
   <div class="tiles" id="parameterTiles"></div>
@@ -173,14 +184,14 @@ body{background:#fff;color:#242a25;font:13px/1.5 Inter,-apple-system,BlinkMacSys
 5. QPF / precipitation outlook
 6. Seven-day forecast
 7. Closing headline</textarea></div></div>
-  <div class="card" style="margin-top:14px"><h3>Forecast discussion / script notes</h3><textarea class="field" id="scriptNotes" placeholder="Write your forecast reasoning, transitions, and on-air language..." style="min-height:170px"></textarea><div class="toolbar"><button class="btn primary" id="saveBroadcast">Save broadcast workspace</button><button class="btn" id="copyBroadcast">Copy rundown and notes</button><span id="broadcastSaved" style="color:var(--green);font-size:11px;align-self:center"></span></div></div>
+  <div class="card" style="margin-top:14px"><h3>Forecast discussion / script notes</h3><textarea class="field" id="scriptNotes" placeholder="Write your forecast reasoning, transitions, and on-air language..." style="min-height:170px"></textarea><div class="toolbar"><button class="btn primary" id="saveBroadcast" title="Save headlines, rundown, and script notes in this browser">Save broadcast draft</button><button class="btn" id="copyBroadcast" title="Copy all broadcast headlines, rundown, and script notes">Copy broadcast content</button><span id="broadcastSaved" style="color:var(--green);font-size:11px;align-self:center"></span></div></div>
 </section>
 
 <section class="page" id="page-journal">
   <div class="eyebrow">Forecast archive</div><h1 class="pagetitle">Forecast Journal</h1><p class="sub">Save your forecast reasoning and sensible-weather expectations. This first release stores entries in this browser only; export backups regularly.</p>
-  <div class="card"><h3>New forecast entry</h3><div class="grid two"><div><label class="fieldlabel">Forecast date</label><input class="field" type="date" id="entryDate"><label class="fieldlabel">Forecast range</label><select class="field" id="entryRange"><option>Nowcasting · 0–12 hours</option><option>Short-range · 0–72 hours</option><option>Medium-range · 3–10 days</option><option>Extended-range · 10+ days</option></select><label class="fieldlabel">Confidence</label><select class="field" id="entryConfidence"><option>High</option><option selected>Moderate</option><option>Low</option></select></div><div><label class="fieldlabel">Forecast location</label><input class="field" id="entryLocation" value="Starkville, MS"><label class="fieldlabel">Forecast summary</label><textarea class="field" id="entrySummary" placeholder="Highs, lows, precipitation timing, wind, and impacts..."></textarea></div></div><label class="fieldlabel">Meteorological reasoning / uncertainty</label><textarea class="field" id="entryReasoning" placeholder="What supports your forecast? Where do models differ? What could change?" ></textarea><button class="btn primary" id="addEntry" style="margin-top:10px">Save forecast entry</button></div>
+  <div class="card"><h3>New forecast entry</h3><div class="grid two"><div><label class="fieldlabel">Forecast date</label><input class="field" type="date" id="entryDate"><label class="fieldlabel">Forecast range</label><select class="field" id="entryRange"><option>Nowcasting · 0–12 hours</option><option>Short-range · 0–72 hours</option><option>Medium-range · 3–10 days</option><option>Extended-range · 10+ days</option></select><label class="fieldlabel">Confidence</label><select class="field" id="entryConfidence"><option>High</option><option selected>Moderate</option><option>Low</option></select></div><div><label class="fieldlabel">Forecast location</label><input class="field" id="entryLocation" value="Starkville, MS"><label class="fieldlabel">Forecast summary</label><textarea class="field" id="entrySummary" placeholder="Highs, lows, precipitation timing, wind, and impacts..."></textarea></div></div><label class="fieldlabel">Meteorological reasoning / uncertainty</label><textarea class="field" id="entryReasoning" placeholder="What supports your forecast? Where do models differ? What could change?" ></textarea><button class="btn primary" id="addEntry" title="Add this forecast to your journal" style="margin-top:10px">Add to forecast journal</button></div>
   <div class="sectionhead"><h2>Saved forecasts</h2><span id="entryCount">0 entries</span></div><div id="entries" class="linklist"><div class="empty">No forecasts saved yet.</div></div>
-  <div class="toolbar"><button class="btn" id="exportData">Export journal backup (.json)</button><label class="btn ghost" for="importFile" style="cursor:pointer">Import backup<input type="file" id="importFile" accept=".json,application/json" hidden></label></div>
+  <div class="toolbar"><button class="btn" id="exportData" title="Download a backup of journal entries, workflow progress, and broadcast notes">Download backup</button><label class="btn ghost" for="importFile" style="cursor:pointer" title="Restore a previously downloaded BCWX backup">Restore backup<input type="file" id="importFile" accept=".json,application/json" hidden></label></div>
 </section>
 
 <section class="page" id="page-library">
@@ -268,7 +279,7 @@ renderResources();
 const flowKey="bcwx-flow-v1",flowNoteKey="bcwx-flow-notes-v1";
 function renderFlow(){const checks=JSON.parse(localStorage.getItem(flowKey)||"[]");document.getElementById("flowList").innerHTML=flow.map((s,i)=>`<div class="flowstep"><div class="num">${String(i+1).padStart(2,"0")}</div><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}<br><span style="color:#76b6d8">Resources: ${esc(s[2])}</span></p></div><label><input type="checkbox" data-step="${i}" ${checks.includes(i)?"checked":""}> Complete</label></div>`).join("");document.querySelectorAll("[data-step]").forEach(c=>c.addEventListener("change",()=>{let arr=JSON.parse(localStorage.getItem(flowKey)||"[]");arr=c.checked?[...new Set([...arr,+c.dataset.step])]:arr.filter(x=>x!==+c.dataset.step);localStorage.setItem(flowKey,JSON.stringify(arr));updateProgress()}));document.getElementById("flowNotes").value=localStorage.getItem(flowNoteKey)||"";updateProgress()}
 function updateProgress(){let arr=JSON.parse(localStorage.getItem(flowKey)||"[]"),n=arr.length;document.getElementById("progressText").textContent=`${n} / ${flow.length} complete`;document.getElementById("progressBar").style.width=(n/flow.length*100)+"%"}
-document.getElementById("resetFlow").addEventListener("click",()=>{if(confirm("Reset the forecasting checklist?")){localStorage.removeItem(flowKey);renderFlow()}});
+document.getElementById("resetFlow").addEventListener("click",()=>{if(confirm("Clear all completed steps in this forecasting session? Your saved session notes will be kept.")){localStorage.removeItem(flowKey);renderFlow()}});
 document.getElementById("saveFlowNotes").addEventListener("click",()=>{localStorage.setItem(flowNoteKey,document.getElementById("flowNotes").value);document.getElementById("flowSaved").textContent="Saved in this browser";setTimeout(()=>document.getElementById("flowSaved").textContent="",2200)});
 renderFlow();
 const bcastIds=["headline1","headline2","headline3","rundown","scriptNotes"],bcastKey="bcwx-broadcast-v1";
@@ -278,7 +289,7 @@ document.getElementById("saveBroadcast").addEventListener("click",saveBroadcast)
 document.getElementById("copyBroadcast").addEventListener("click",()=>{let t=bcastIds.map(id=>document.getElementById(id).value).join("\n\n");navigator.clipboard?.writeText(t).then(()=>alert("Broadcast notes copied." )).catch(()=>alert("Copy is unavailable in this browser; select and copy the text manually."))});
 const journalKey="bcwx-journal-v1";
 function getEntries(){return JSON.parse(localStorage.getItem(journalKey)||"[]")}
-function renderEntries(){let a=getEntries();document.getElementById("entryCount").textContent=a.length+" entries";document.getElementById("entries").innerHTML=a.length?a.slice().reverse().map((e,idx)=>`<div class="linkrow"><span class="linkicon">✎</span><span class="linkmeta"><b>${esc(e.date)} · ${esc(e.location)} · ${esc(e.range)}</b><small>${esc(e.summary)} · Confidence: ${esc(e.confidence)}</small></span><button class="btn small" data-delete="${a.length-1-idx}">Delete</button></div>`).join(""):'<div class="empty">No forecasts saved yet.</div>';document.querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>{let x=getEntries();x.splice(+b.dataset.delete,1);localStorage.setItem(journalKey,JSON.stringify(x));renderEntries()}))}
+function renderEntries(){let a=getEntries();document.getElementById("entryCount").textContent=a.length+" entries";document.getElementById("entries").innerHTML=a.length?a.slice().reverse().map((e,idx)=>`<div class="linkrow"><span class="linkicon">✎</span><span class="linkmeta"><b>${esc(e.date)} · ${esc(e.location)} · ${esc(e.range)}</b><small>${esc(e.summary)} · Confidence: ${esc(e.confidence)}</small></span><button class="btn danger small" data-delete="${a.length-1-idx}" title="Permanently remove this journal entry from this browser">Remove entry</button></div>`).join(""):'<div class="empty">No forecasts saved yet.</div>';document.querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>{if(!confirm("Remove this forecast journal entry? This cannot be undone unless you have a backup."))return;let x=getEntries();x.splice(+b.dataset.delete,1);localStorage.setItem(journalKey,JSON.stringify(x));renderEntries()}))}
 document.getElementById("entryDate").value=new Date().toISOString().slice(0,10);
 document.getElementById("addEntry").addEventListener("click",()=>{let e={date:document.getElementById("entryDate").value,range:document.getElementById("entryRange").value,confidence:document.getElementById("entryConfidence").value,location:document.getElementById("entryLocation").value,summary:document.getElementById("entrySummary").value,reasoning:document.getElementById("entryReasoning").value};if(!e.date||!e.summary.trim()){alert("Please enter a date and forecast summary.");return}let a=getEntries();a.push(e);localStorage.setItem(journalKey,JSON.stringify(a));["entrySummary","entryReasoning"].forEach(id=>document.getElementById(id).value="");renderEntries()});renderEntries();
 document.getElementById("exportData").addEventListener("click",()=>{let data={exported:new Date().toISOString(),journal:getEntries(),flow:JSON.parse(localStorage.getItem(flowKey)||"[]"),flowNotes:localStorage.getItem(flowNoteKey)||"",broadcast:JSON.parse(localStorage.getItem(bcastKey)||"{}")};download("bcwx-backup.json",JSON.stringify(data,null,2),"application/json")});
